@@ -16,6 +16,7 @@ public class SaveGameDelegate {
     public void saveGame() {
         try {
             saveGameService.saveGame();
+            ConsoleInterfaceUtil.printMessage(MessagesUtil.GAME_SAVED);
         } catch (FileSerializationException e) {
             e.printStackTrace();
             ConsoleInterfaceUtil.printMessage(MessagesUtil.FILE_WRITE_EXCEPTION);

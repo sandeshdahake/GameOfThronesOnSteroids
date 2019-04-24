@@ -38,4 +38,5 @@ public class MessagesUtil {
     public static final String KINGS_LANDING_MESSAGE = "###\n   Kigs Landing is rules by  Cersei Lannister, she is busy in keeping her Iron throne" +
             " reduced your hitpoint by 10\n###";
     public static final String YOU_SACRIFICE_YOUR_LIFE_FOR_LIVING = "Your sacrifice is for living";
+    public static final String GAME_SAVED = "Game Saved !!!";
 }

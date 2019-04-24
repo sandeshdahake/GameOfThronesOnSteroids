@@ -51,7 +51,6 @@ public class MapExplorer {
     }
 
     public void returnHome(Actor hero) {
-        hero.setHealthPoints(hero.getHealthPoints() + 20);
         start();
     }
 

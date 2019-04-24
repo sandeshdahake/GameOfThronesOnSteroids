@@ -5,10 +5,12 @@ import com.sandeshdahake.game.util.ConsoleInterfaceUtil;
 import com.sandeshdahake.game.util.InvalidInputException;
 import com.sandeshdahake.game.util.MessagesUtil;
 
+import java.io.Serializable;
+
 /**
  * @author sandeshDahake
  */
-public abstract class Location {
+public abstract class Location implements Serializable {
     private String locationName;
 
     public String getLocationName() {
