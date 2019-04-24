@@ -1,7 +1,7 @@
 package com.sandeshdahake.game.map;
 
-import com.sandeshdahake.game.saveGame.GameState;
 import com.sandeshdahake.game.actors.Actor;
+import com.sandeshdahake.game.saveGame.GameState;
 import com.sandeshdahake.game.util.ConsoleInterfaceUtil;
 import com.sandeshdahake.game.util.InvalidInputException;
 import com.sandeshdahake.game.util.MessagesUtil;
@@ -15,7 +15,8 @@ public class MapExplorer {
 
     private static MapExplorer INSTANCE = null;
 
-    private MapExplorer() { }
+    private MapExplorer() {
+    }
 
     public static MapExplorer getInstance() {
         if (INSTANCE == null)
@@ -27,16 +28,16 @@ public class MapExplorer {
         return INSTANCE;
     }
 
-    public void start(){
+    public void start() {
         ConsoleInterfaceUtil.printLine(MessagesUtil.SELECT_LOCATION_TO_EXPLORE);
         List<Location> locations = GameState.getInstance().getLocations();
-        for (Location location : locations){
-            ConsoleInterfaceUtil.printLine(locations.indexOf(location)+ " : " + location.getLocationName());
+        for (Location location : locations) {
+            ConsoleInterfaceUtil.printLine(locations.indexOf(location) + " : " + location.getLocationName());
         }
 
         int choice = 0;
         try {
-            choice = ConsoleInterfaceUtil.choice(0, locations.size()-1);
+            choice = ConsoleInterfaceUtil.choice(0, locations.size() - 1);
         } catch (InvalidInputException e) {
             ConsoleInterfaceUtil.printMessage(MessagesUtil.INVALID_INPUT);
             start();
@@ -48,9 +49,10 @@ public class MapExplorer {
                 .execute();
 
     }
-    public void returnHome(Actor hero){
-      hero.setHealthPoints(hero.getHealthPoints() + 20);
-      start();
+
+    public void returnHome(Actor hero) {
+        hero.setHealthPoints(hero.getHealthPoints() + 20);
+        start();
     }
 
 }

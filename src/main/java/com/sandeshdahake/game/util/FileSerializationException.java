@@ -5,7 +5,7 @@ package com.sandeshdahake.game.util;
  */
 public class FileSerializationException extends Exception {
 
-    public FileSerializationException(Throwable exception){
+    public FileSerializationException(Throwable exception) {
         super(exception);
     }
 

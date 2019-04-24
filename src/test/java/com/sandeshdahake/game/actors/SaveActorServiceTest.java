@@ -11,9 +11,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+
+import static org.mockito.Mockito.*;
 
 /**
  * @author sandeshDahake
@@ -21,9 +20,9 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class SaveActorServiceTest {
 
-    Actor testHero;
-    ISaveActorService saveActorService;
-    IFileIOService fileIOService ;
+    private Actor testHero;
+    private ISaveActorService saveActorService;
+    private IFileIOService fileIOService;
 
     @Before
     public void setUp() throws Exception {
@@ -42,7 +41,7 @@ public class SaveActorServiceTest {
     public void given_actor_then_save_actor() {
         try {
             saveActorService.saveActor(testHero);
-            verify(fileIOService).write(testHero,"hero.got");
+            verify(fileIOService).write(testHero, "hero.got");
         } catch (FileSerializationException e) {
             e.printStackTrace();
         }
@@ -71,7 +70,7 @@ public class SaveActorServiceTest {
     @Test
     public void given_saved_file_then_return_true() {
         when(fileIOService.fileExists("hero.got")).thenReturn(true);
-        Assert.assertEquals(saveActorService.fileExists("hero.got"),true);
+        Assert.assertEquals(saveActorService.fileExists("hero.got"), true);
     }
 
 }

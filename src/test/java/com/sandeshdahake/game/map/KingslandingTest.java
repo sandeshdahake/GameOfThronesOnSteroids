@@ -10,15 +10,13 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * @author sandeshDahake
  */
 public class KingslandingTest {
-    Actor hero;
-    Actor enemy;
-    Kingslanding kingslanding;
+    private Actor hero;
+    private Actor enemy;
+    private Kingslanding kingslanding;
 
     @Before
     public void setUp() throws Exception {
@@ -39,7 +37,7 @@ public class KingslandingTest {
 
     @Test
     public void fight() {
-        kingslanding.fight(hero,enemy);
+        kingslanding.fight(hero, enemy);
         Assert.assertEquals(90L, hero.getHealthPoints().longValue());
 
     }

@@ -4,20 +4,19 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * @author sandeshDahake
  */
 public class WinterfellTest {
-    Winterfell winterfell;
+    private Winterfell winterfell;
+
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         winterfell = new Winterfell();
     }
 
     @Test
-    public void given_location_then_print_location_name()throws Exception{
-        Assert.assertEquals("Winterfell(Kingdom of the North)",winterfell.getLocationName());
+    public void given_location_then_print_location_name() {
+        Assert.assertEquals("Winterfell(Kingdom of the North)", winterfell.getLocationName());
     }
 }

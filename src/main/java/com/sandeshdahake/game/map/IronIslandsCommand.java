@@ -1,18 +1,18 @@
 package com.sandeshdahake.game.map;
 
-import com.sandeshdahake.game.saveGame.GameState;
 import com.sandeshdahake.game.actors.Actor;
 import com.sandeshdahake.game.actors.Enemy;
+import com.sandeshdahake.game.saveGame.GameState;
 import com.sandeshdahake.game.weapons.Dragonglass;
 
 /**
  * @author sandeshDahake
  */
 public class IronIslandsCommand implements ICommand {
+    private GameState gameState;
     private Actor player;
     private Actor enemy;
     private Location ironIslands;
-    GameState gameState;
 
     public IronIslandsCommand() {
         this.gameState = GameState.getInstance();

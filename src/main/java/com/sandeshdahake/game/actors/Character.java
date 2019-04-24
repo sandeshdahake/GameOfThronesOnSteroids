@@ -14,43 +14,44 @@ public class Character extends Actor implements IHero {
         super(healthPoints, name, weapon, xp);
     }
 
+    @Override
+    public String toString() {
+        return "Character info {" +
+                "xp=" + xp +
+                super.toString() + "} ";
+    }
+
     public static class Builder {
         private Integer healthPoints;
         private String name;
         private IWeapon weapon;
         private Integer xp;
 
-        public Builder(){}
+        public Builder() {
+        }
 
-        public Builder  setHealthPoints(Integer healthPoints) {
+        public Builder setHealthPoints(Integer healthPoints) {
             this.healthPoints = healthPoints;
-            return  this;
+            return this;
         }
 
-        public Builder  setName(String name) {
+        public Builder setName(String name) {
             this.name = name;
-            return  this;
+            return this;
         }
 
-        public Builder  setWeapon(IWeapon weapon) {
+        public Builder setWeapon(IWeapon weapon) {
             this.weapon = weapon;
-            return  this;
+            return this;
         }
 
-        public Builder  setXp(Integer xp) {
+        public Builder setXp(Integer xp) {
             this.xp = xp;
-            return  this;
+            return this;
         }
 
-        public Character build(){
+        public Character build() {
             return new Character(healthPoints, name, weapon, xp);
         }
-    }
-
-    @Override
-    public String toString() {
-        return "Character info {" +
-                "xp=" + xp +
-                  super.toString() + "} ";
     }
 }

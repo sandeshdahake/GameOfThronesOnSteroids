@@ -8,10 +8,10 @@ import com.sandeshdahake.game.util.FileSerializationException;
  */
 public interface ISaveGameService {
 
-    public  void saveGame() throws FileSerializationException ;
+    void saveGame() throws FileSerializationException;
 
-    public GameState loadGame() throws FileDeserializationException;
+    GameState loadGame() throws FileDeserializationException;
 
-    public Boolean fileExists(String filename);
+    Boolean fileExists(String filename);
 
 }

@@ -11,9 +11,16 @@ import java.util.List;
 /**
  * @author sandeshDahake
  */
-public class GameState implements Serializable{
+public class GameState implements Serializable {
     private static GameState INSTANCE = null;
-    private GameState() {}
+    private Actor hero;
+    private Location currentLocation;
+    private Actor enemy;
+    private List<ICommand> maps;
+    private List<Location> locations = new ArrayList<>();
+
+    private GameState() {
+    }
 
     public static GameState getInstance() {
         if (INSTANCE == null) {
@@ -25,12 +32,6 @@ public class GameState implements Serializable{
         }
         return INSTANCE;
     }
-
-    private Actor hero;
-    private Location currentLocation;
-    private Actor enemy;
-    private List<ICommand> maps;
-    private List<Location> locations = new ArrayList<>();
 
     public List<Location> getLocations() {
         return locations;

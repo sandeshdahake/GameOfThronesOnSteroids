@@ -1,14 +1,11 @@
 package com.sandeshdahake.game.weapons;
 
-import com.sandeshdahake.game.util.ConsoleInterfaceUtil;
-import com.sandeshdahake.game.util.MessagesUtil;
-
 /**
  * @author sandeshDahake
  */
 public class WeaponFactory {
     public IWeapon orderWeapon(WeaponType type) throws WeaponNotFoundException {
-        if(type == null){
+        if (type == null) {
             throw new WeaponNotFoundException();
         }
 

@@ -1,30 +1,24 @@
 package com.sandeshdahake.game.saveGame;
 
-import com.sandeshdahake.game.actors.Character;
-import com.sandeshdahake.game.actors.SaveActorService;
 import com.sandeshdahake.game.util.FileDeserializationException;
 import com.sandeshdahake.game.util.FileIOService;
 import com.sandeshdahake.game.util.FileSerializationException;
 import com.sandeshdahake.game.util.IFileIOService;
-import com.sandeshdahake.game.weapons.WeaponFactory;
-import com.sandeshdahake.game.weapons.WeaponType;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 /**
  * @author sandeshDahake
  */
 public class SaveGameServiceTest {
-    IFileIOService fileIOService ;
-    ISaveGameService saveGameService;
+    private IFileIOService fileIOService;
+    private ISaveGameService saveGameService;
+
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         fileIOService = mock(FileIOService.class);
         saveGameService = new SaveGameService()
                 .setFileIOService(fileIOService);
@@ -54,7 +48,7 @@ public class SaveGameServiceTest {
     @Test
     public void fileExists() {
         when(fileIOService.fileExists("game.got")).thenReturn(true);
-        Assert.assertEquals(saveGameService.fileExists("game.got"),true);
+        Assert.assertEquals(saveGameService.fileExists("game.got"), true);
 
     }
 }

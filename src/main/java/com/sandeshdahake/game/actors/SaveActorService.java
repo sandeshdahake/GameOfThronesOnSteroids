@@ -9,22 +9,24 @@ import com.sandeshdahake.game.util.IFileIOService;
  * @author sandeshDahake
  */
 public class SaveActorService implements ISaveActorService {
-    IFileIOService fileIOService ;
+    private IFileIOService fileIOService;
+
+    public SaveActorService() {
+        this.fileIOService = new FileIOService();
+    }
 
     public SaveActorService setFileIOService(IFileIOService fileIOService) {
         this.fileIOService = fileIOService;
         return this;
     }
 
-    public SaveActorService() {
-        this.fileIOService = new FileIOService();
-    }
     @Override
     public void saveActor(Actor actor) throws FileSerializationException {
         fileIOService.write(actor, "hero.got");
     }
+
     @Override
-    public Actor loadActor() throws FileSerializationException, FileDeserializationException {
+    public Actor loadActor() throws FileDeserializationException {
         return fileIOService.read(Actor.class, "hero.got");
     }
 

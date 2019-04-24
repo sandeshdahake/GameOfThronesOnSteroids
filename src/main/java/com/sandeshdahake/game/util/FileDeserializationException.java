@@ -1,7 +1,5 @@
 package com.sandeshdahake.game.util;
 
-import java.io.IOException;
-
 /**
  * @author sandeshDahake
  */

@@ -7,13 +7,13 @@ import com.sandeshdahake.game.util.*;
  */
 public class SaveGameDelegate {
 
-    ISaveGameService saveGameService;
+    private ISaveGameService saveGameService;
 
     public SaveGameDelegate() {
         this.saveGameService = new SaveGameService();
     }
 
-    public void saveGame(){
+    public void saveGame() {
         try {
             saveGameService.saveGame();
         } catch (FileSerializationException e) {
@@ -22,27 +22,27 @@ public class SaveGameDelegate {
         }
     }
 
-    public GameState loadGame()  {
-        if(saveGameService.fileExists("game.got")){
+    public GameState loadGame() {
+        if (saveGameService.fileExists("game.got")) {
             ConsoleInterfaceUtil.printLine("Do you want to start new game ( 0  ) or load game ( 1 )?\n");
             int choice = 0;
             try {
-                choice = ConsoleInterfaceUtil.choice(0,1);
-                if(choice == 0){
+                choice = ConsoleInterfaceUtil.choice(0, 1);
+                if (choice == 0) {
                     return null;
-                }else{
+                } else {
                     GameState gameState = saveGameService.loadGame();
-                    if(gameState == null || gameState.getHero() == null || gameState.getLocations().size() == 0){
+                    if (gameState == null || gameState.getHero() == null || gameState.getLocations().size() == 0) {
                         ConsoleInterfaceUtil.printMessage(MessagesUtil.INVALID_GAME_STATE);
                         loadGame();
                     }
                 }
-            } catch (InvalidInputException e ) {
+            } catch (InvalidInputException e) {
                 ConsoleInterfaceUtil.printMessage(MessagesUtil.INVALID_INPUT);
             } catch (FileDeserializationException e) {
                 ConsoleInterfaceUtil.printMessage(MessagesUtil.FILE_READ_EXCEPTION);
             }
-        }else{
+        } else {
             return null;
         }
         return null;

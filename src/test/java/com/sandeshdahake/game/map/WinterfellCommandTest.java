@@ -1,6 +1,5 @@
 package com.sandeshdahake.game.map;
 
-import com.sandeshdahake.game.util.ConsoleInterfaceUtil;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -8,19 +7,17 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author sandeshDahake
  */
 public class WinterfellCommandTest {
-    ICommand winterfellCommand;
-
-
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
     private final PrintStream originalErr = System.err;
+    private ICommand winterfellCommand;
 
     @Before
     public void setUpStreams() {
@@ -39,7 +36,7 @@ public class WinterfellCommandTest {
     @Test
     public void execute() {
         winterfellCommand.execute();
-        assertEquals("in winterfell"+System.lineSeparator(), outContent.toString());
+        assertEquals("in winterfell" + System.lineSeparator(), outContent.toString());
 
     }
 }

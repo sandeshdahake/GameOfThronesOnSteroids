@@ -1,7 +1,5 @@
 package com.sandeshdahake.game.weapons;
 
-import com.sandeshdahake.game.actors.Actor;
-
 import java.io.Serializable;
 
 /**
@@ -9,6 +7,7 @@ import java.io.Serializable;
  */
 public interface IWeapon extends Serializable {
     String getWeaponName();
+
     Integer getWeaponKillPoints();
 }
 

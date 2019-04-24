@@ -7,10 +7,10 @@ import com.sandeshdahake.game.util.FileSerializationException;
  * @author sandeshDahake
  */
 public interface ISaveActorService {
-    public void saveActor(Actor actor) throws FileSerializationException ;
+    void saveActor(Actor actor) throws FileSerializationException;
 
-    public Actor loadActor() throws FileSerializationException, FileDeserializationException ;
+    Actor loadActor() throws FileSerializationException, FileDeserializationException;
 
-    public Boolean fileExists(String filename);
+    Boolean fileExists(String filename);
 
 }

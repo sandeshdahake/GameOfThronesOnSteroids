@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * @author sandeshDahake
  */
-public abstract class Actor implements Serializable{
+public abstract class Actor implements Serializable {
     private Integer healthPoints;
     private String name;
     private IWeapon weapon;
@@ -56,7 +56,7 @@ public abstract class Actor implements Serializable{
     public String toString() {
         return
                 "healthPoints=" + healthPoints +
-                ", name='" + name + '\'' +
-                ", weapon=" + weapon.getWeaponName();
+                        ", name='" + name + '\'' +
+                        ", weapon=" + weapon.getWeaponName();
     }
 }

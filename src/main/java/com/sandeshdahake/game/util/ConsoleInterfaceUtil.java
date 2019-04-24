@@ -11,7 +11,8 @@ import java.util.regex.Pattern;
  */
 public class ConsoleInterfaceUtil {
 
-    public static final String SAVE_GAME = "saveGame game";
+    private static final String SAVE_GAME = "saveGame game";
+
     public static void printMessage(String message) {
         System.out.println(message);
 
@@ -33,17 +34,15 @@ public class ConsoleInterfaceUtil {
         try {
             input = new Scanner(System.in);
             message = input.nextLine();
-        }
-        catch (NoSuchElementException nsee) {
+        } catch (NoSuchElementException nsee) {
             nsee.printStackTrace();
-        }
-        catch (IllegalStateException ise) {
+        } catch (IllegalStateException ise) {
             ise.printStackTrace();
         }
-        if(null == message || "".equalsIgnoreCase(message.trim())){
+        if (null == message || "".equalsIgnoreCase(message.trim())) {
             throw new InvalidInputException();
         }
-        if(message.equalsIgnoreCase(SAVE_GAME)){
+        if (message.equalsIgnoreCase(SAVE_GAME)) {
             new SaveGameDelegate().saveGame();
         }
         return message.toLowerCase();
@@ -55,15 +54,15 @@ public class ConsoleInterfaceUtil {
         Scanner input = null;
         input = new Scanner(System.in);
 
-        while (true){
+        while (true) {
             String message = input.nextLine();
             Boolean isNumber = Pattern.matches("[0-9]+", message);
-            if(message.equalsIgnoreCase(SAVE_GAME)){
-                 new SaveGameDelegate().saveGame();
+            if (message.equalsIgnoreCase(SAVE_GAME)) {
+                new SaveGameDelegate().saveGame();
             }
-            if(isNumber){
+            if (isNumber) {
                 result = Integer.parseInt(message);
-                if(result >= minRange && result <= maxRange){
+                if (result >= minRange && result <= maxRange) {
                     break;
                 }
             }

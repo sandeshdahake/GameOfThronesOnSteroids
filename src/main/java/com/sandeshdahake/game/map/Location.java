@@ -15,13 +15,13 @@ public abstract class Location {
         return locationName;
     }
 
-    public void setLocationName(String locationName) {
+    void setLocationName(String locationName) {
         this.locationName = locationName;
     }
 
-    public void fight(Actor hero, Actor enemy){
+    public void fight(Actor hero, Actor enemy) {
         ConsoleInterfaceUtil.printLine("\n------------------------------------------------------------------\n");
-        ConsoleInterfaceUtil.printLine(hero.getName() + " HP: "+ hero.getHealthPoints());
+        ConsoleInterfaceUtil.printLine(hero.getName() + " HP: " + hero.getHealthPoints());
         ConsoleInterfaceUtil.printLine(enemy.getName() + " HP: " + enemy.getHealthPoints());
         ConsoleInterfaceUtil.printLine("\n1: Attack");
         ConsoleInterfaceUtil.printLine("2: Run");
@@ -30,39 +30,40 @@ public abstract class Location {
 
         int choice = 0;
         try {
-            choice = ConsoleInterfaceUtil.choice(1,2);
-            if(choice==1){
-                attack(hero,enemy);
-            }
-            else if(choice==2){
+            choice = ConsoleInterfaceUtil.choice(1, 2);
+            if (choice == 1) {
+                attack(hero, enemy);
+            } else if (choice == 2) {
                 MapExplorer.getInstance().returnHome(hero);
-            }
-            else{
-                fight(hero,enemy);
+            } else {
+                fight(hero, enemy);
             }
 
         } catch (InvalidInputException e) {
             ConsoleInterfaceUtil.printMessage(MessagesUtil.INVALID_INPUT);
-            fight(hero,enemy);
+            fight(hero, enemy);
         }
     }
 
-    public void attack(Actor hero, Actor enemy){
+    private void attack(Actor hero, Actor enemy) {
 
-        int reducedHealth = hero.getHealthPoints()- enemy.getWeapon().getWeaponKillPoints();
-        int reducedEnemyHealth = enemy.getHealthPoints()- hero.getWeapon().getWeaponKillPoints();
+        int reducedHealth = hero.getHealthPoints() - enemy.getWeapon().getWeaponKillPoints();
+        int reducedEnemyHealth = enemy.getHealthPoints() - hero.getWeapon().getWeaponKillPoints();
         ConsoleInterfaceUtil.printLine(String.format(MessagesUtil.YOU_LOST_HEALTH, enemy.getWeapon().getWeaponKillPoints()));
         ConsoleInterfaceUtil.printLine(String.format(MessagesUtil.ENEMEY_LOST_HEALTH, hero.getWeapon().getWeaponKillPoints()));
 
-        if(reducedEnemyHealth <=0){
-            hero.setXp(hero.getXp()+100);
-            ConsoleInterfaceUtil.printLine(String.format(MessagesUtil.YOU_DEFEATED_ENEMEY, enemy.getName()) );
-        }else if(reducedHealth <= 0 ){
-            ConsoleInterfaceUtil.printLine(String.format(MessagesUtil.YOU_ARE_DEFEATED_BY_ENEMEY, Math.abs(reducedHealth)) );
+        if (reducedEnemyHealth <= 0 && reducedHealth > 0) {
+            hero.setXp(hero.getXp() + 100);
+            ConsoleInterfaceUtil.printLine(String.format(MessagesUtil.YOU_DEFEATED_ENEMEY, enemy.getName()));
+        } else if (reducedHealth <= 0 && reducedEnemyHealth > 0) {
+            ConsoleInterfaceUtil.printLine(String.format(MessagesUtil.YOU_ARE_DEFEATED_BY_ENEMEY, Math.abs(reducedHealth)));
+        } else if (reducedHealth <= 0 && reducedEnemyHealth <= 0) {
+            ConsoleInterfaceUtil.printLine(String.format(MessagesUtil.YOU_DEFEATED_ENEMEY, enemy.getName()));
+            ConsoleInterfaceUtil.printLine(String.format(MessagesUtil.YOU_SACRIFICE_YOUR_LIFE_FOR_LIVING, Math.abs(reducedHealth)));
         }else{
             hero.setHealthPoints(reducedHealth);
             enemy.setHealthPoints(reducedEnemyHealth);
-            fight(hero,enemy);
+            fight(hero, enemy);
         }
     }
 

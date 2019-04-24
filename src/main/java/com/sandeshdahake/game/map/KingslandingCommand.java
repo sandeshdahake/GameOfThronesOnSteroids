@@ -1,18 +1,18 @@
 package com.sandeshdahake.game.map;
 
-import com.sandeshdahake.game.saveGame.GameState;
 import com.sandeshdahake.game.actors.Actor;
 import com.sandeshdahake.game.actors.Enemy;
+import com.sandeshdahake.game.saveGame.GameState;
 import com.sandeshdahake.game.weapons.Dragonglass;
 
 /**
  * @author sandeshDahake
  */
 public class KingslandingCommand implements ICommand {
+    private GameState gameState;
     private Actor player;
     private Actor enemy;
     private Location Kingslanding;
-    GameState gameState;
 
     public KingslandingCommand() {
         this.gameState = GameState.getInstance();

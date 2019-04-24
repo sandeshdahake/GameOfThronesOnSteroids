@@ -27,14 +27,15 @@ public class MessagesUtil {
     //Story
     public static final String STORY_WELCOME =
             "###\n  Welcome %s to Winterfell, an ancient fortress in the north of Westros.\n" +
-            "   I am Samwell Tarly and i am here to tell you truth that you are actually Aegon Targaryen, " +
-            "son of Rhaegar Targaryen and Lyanna Stark.\n   The combined armies of the living prepare the defenses of Winterfell " +
-            "against the oncoming army of the dead.\n   The White Walkers soon arrive in the night with their army of the dead," +
-            "leading to a great battle and we chose you to lead us in this war, are you ready !!!!! \n###";
+                    "   I am Samwell Tarly and i am here to tell you truth that you are actually Aegon Targaryen, " +
+                    "son of Rhaegar Targaryen and Lyanna Stark.\n   The combined armies of the living prepare the defenses of Winterfell " +
+                    "against the oncoming army of the dead.\n   The White Walkers soon arrive in the night with their army of the dead," +
+                    "leading to a great battle and we chose you to lead us in this war, are you ready !!!!! \n###";
 
     public static final String SELECT_LOCATION_TO_EXPLORE = "Select location to explore ";
     public static final String IRON_ISLANDS_MESSAGE = "###\n    Iron Islands is ruled by House Greyjoy and they have sworn to support you in your fight" +
             "Your Hit point increased by 20 and Xp by 50\n###";
     public static final String KINGS_LANDING_MESSAGE = "###\n   Kigs Landing is rules by  Cersei Lannister, she is busy in keeping her Iron throne" +
             " reduced your hitpoint by 10\n###";
+    public static final String YOU_SACRIFICE_YOUR_LIFE_FOR_LIVING = "Your sacrifice is for living";
 }

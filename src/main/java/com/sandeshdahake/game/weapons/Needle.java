@@ -6,6 +6,7 @@ package com.sandeshdahake.game.weapons;
 public class Needle implements IWeapon {
     private String weaponName = "Needle";
     private Integer weaponKillPoints = 50;
+
     @Override
     public String getWeaponName() {
         return this.weaponName;

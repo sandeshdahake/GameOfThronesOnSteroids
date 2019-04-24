@@ -10,37 +10,33 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.ByteArrayInputStream;
-import java.nio.ByteBuffer;
-
-import static org.junit.Assert.*;
-
 /**
  * @author sandeshDahake
  */
 public class IronIslandsTest {
-    Actor hero;
-    Actor enemy;
-    IronIslands ironIslands;
+    private Actor hero;
+    private Actor enemy;
+    private IronIslands ironIslands;
+
     @Before
     public void setUp() throws Exception {
         hero = new Character.Builder()
-            .setName("TestHero")
-            .setHealthPoints(100)
-            .setWeapon(new WeaponFactory().orderWeapon(WeaponType.Dragon))
-            .setXp(0)
-            .build();
+                .setName("TestHero")
+                .setHealthPoints(100)
+                .setWeapon(new WeaponFactory().orderWeapon(WeaponType.Dragon))
+                .setXp(0)
+                .build();
         enemy = new Enemy.Builder()
-            .setName("House Greyjoy")
-            .setHealthPoints(100)
-            .setWeapon(new Dragonglass())
-            .build();
+                .setName("House Greyjoy")
+                .setHealthPoints(100)
+                .setWeapon(new Dragonglass())
+                .build();
         ironIslands = new IronIslands();
     }
 
     @Test
     public void fight() {
-        ironIslands.fight(hero,enemy);
+        ironIslands.fight(hero, enemy);
         Assert.assertEquals(120L, hero.getHealthPoints().longValue());
     }
 }

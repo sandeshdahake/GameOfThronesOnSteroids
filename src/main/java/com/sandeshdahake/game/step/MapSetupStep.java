@@ -1,7 +1,10 @@
 package com.sandeshdahake.game.step;
 
+import com.sandeshdahake.game.map.ICommand;
+import com.sandeshdahake.game.map.IronIslandsCommand;
+import com.sandeshdahake.game.map.KingslandingCommand;
+import com.sandeshdahake.game.map.WallCommand;
 import com.sandeshdahake.game.saveGame.GameState;
-import com.sandeshdahake.game.map.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,16 +12,17 @@ import java.util.List;
 /**
  * @author sandeshDahake
  */
-public class MapSetupStep implements Step{
+public class MapSetupStep implements Step {
+
+    private List<ICommand> maps;
 
     @Override
     public void run() {
         buildMap();
     }
-    private List<ICommand> maps;
 
-    public void buildMap(){
-        if(maps == null){
+    public void buildMap() {
+        if (maps == null) {
             maps = new ArrayList<>();
             maps.add(new WallCommand());
             maps.add(new IronIslandsCommand());

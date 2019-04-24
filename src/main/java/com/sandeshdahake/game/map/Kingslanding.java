@@ -9,7 +9,7 @@ import com.sandeshdahake.game.util.MessagesUtil;
  */
 public class Kingslanding extends Location {
 
-    public Kingslanding() {
+    Kingslanding() {
 
         this.setLocationName("Kingslanding (Capital of the Seven Kingdoms)");
     }
@@ -19,6 +19,6 @@ public class Kingslanding extends Location {
     public void fight(Actor hero, Actor enemy) {
         ConsoleInterfaceUtil.printMessage(MessagesUtil.KINGS_LANDING_MESSAGE);
         hero.setHealthPoints(hero.getHealthPoints() - 10);
-        hero.setXp(hero.getXp()+50);
+        hero.setXp(hero.getXp() + 50);
     }
 }

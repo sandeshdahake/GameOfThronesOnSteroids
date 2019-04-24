@@ -10,18 +10,18 @@ import com.sandeshdahake.game.util.IFileIOService;
  */
 public class SaveGameService implements ISaveGameService {
 
-    IFileIOService fileIOService ;
+    private IFileIOService fileIOService;
+
+    SaveGameService() {
+        this.fileIOService = new FileIOService();
+    }
 
     public SaveGameService setFileIOService(IFileIOService fileIOService) {
         this.fileIOService = fileIOService;
         return this;
     }
 
-    public SaveGameService() {
-        this.fileIOService = new FileIOService();
-    }
-
-    public  void saveGame() throws FileSerializationException {
+    public void saveGame() throws FileSerializationException {
         fileIOService.write(GameState.getInstance(), "game.got");
     }
 

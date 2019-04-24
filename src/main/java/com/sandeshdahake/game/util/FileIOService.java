@@ -8,17 +8,17 @@ import java.io.*;
 public class FileIOService implements IFileIOService {
 
     @Override
-    public String getRootFolder(){
+    public String getRootFolder() {
         String applicationDir = getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
 
-        if (applicationDir.endsWith(".jar"))
-        {
+        if (applicationDir.endsWith(".jar")) {
             return new File(applicationDir).getParent();
         }
         return applicationDir;
     }
+
     @Override
-    public Boolean fileExists(String filename){
+    public Boolean fileExists(String filename) {
         String rootFolder = getRootFolder();
         File file = new File(rootFolder + "/" + filename);
 
@@ -39,14 +39,14 @@ public class FileIOService implements IFileIOService {
         } catch (Exception e) {
             throw new FileDeserializationException(e);
         } finally {
-            if(fileInputStream != null){
+            if (fileInputStream != null) {
                 try {
                     fileInputStream.close();
                 } catch (IOException e) {
                     throw new FileDeserializationException(e);
                 }
             }
-            if (objectInputStream != null){
+            if (objectInputStream != null) {
                 try {
                     objectInputStream.close();
                 } catch (IOException e) {
@@ -61,7 +61,7 @@ public class FileIOService implements IFileIOService {
     public void write(Object object, String filename) throws FileSerializationException {
         ObjectOutputStream objectOutputStream = null;
         FileOutputStream fileOutputStream = null;
-        try{
+        try {
             String baseDir = getRootFolder();
 
             fileOutputStream = new FileOutputStream(baseDir + "/" + filename);
@@ -71,14 +71,14 @@ public class FileIOService implements IFileIOService {
         } catch (Exception ex) {
             throw new FileSerializationException(ex);
         } finally {
-            if(fileOutputStream  != null) {
+            if (fileOutputStream != null) {
                 try {
                     fileOutputStream.close();
                 } catch (IOException e) {
                     throw new FileSerializationException(e);
                 }
             }
-            if(objectOutputStream  != null){
+            if (objectOutputStream != null) {
                 try {
                     objectOutputStream.close();
                 } catch (IOException e) {
