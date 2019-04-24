@@ -29,5 +29,21 @@ Test Coverage
 - 82% coverage 
 - TDD is followed in most of the part except singleton and Scanner inputs
 
+Save Game 
+- For saving game use 'save game'
+
+Add new weapon 
+
+1. Create new weapon class implementing  com.sandeshdahake.game.weapons.IWeapon interface
+2. Add corresponding entry in  com.sandeshdahake.game.weapons.WeaponFactory class 
+
+Add new location on MAP
+
+1. Create new Location subclass 
+2. Create corresponding Command class 
+3. Add entry of new Command class to MapSetupStep.class
+
 CI/CD 
-- Travis CI build 
+-  Travis CI build 
+ - gotOnSteroids.travis.yml
+![image](documents/travis.PNG)

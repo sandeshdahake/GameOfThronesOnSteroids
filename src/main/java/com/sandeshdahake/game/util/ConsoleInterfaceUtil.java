@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
  */
 public class ConsoleInterfaceUtil {
 
-    private static final String SAVE_GAME = "saveGame game";
+    private static final String SAVE_GAME = "save game";
 
     public static void printMessage(String message) {
         System.out.println(message);
